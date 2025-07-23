@@ -245,7 +245,7 @@ class ResampleFilter(Filter):
 
         # apply the resampling filter
         resample_filter = sitk.ResampleImageFilter()
-        resample_filter.SetInterpolator(sitk.sitkBSpline)
+        resample_filter.SetInterpolator(sitk.sitkLinear) # Interpolator matters!!!! rwang
         resample_filter.SetTransform(params.transform)
         resample_filter.SetDefaultPixelValue(min_intensity)
         resample_filter.SetOutputOrigin(output_origin)
